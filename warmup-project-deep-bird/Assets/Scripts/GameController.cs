@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
 	public Text scoreText;
 	public static bool gameOver = false;
 	public static int score = 0;
+	private Animator anim;
+	public GameObject mainCamera;
 
 	void Awake()
 	{
@@ -23,7 +25,11 @@ public class GameController : MonoBehaviour
 		score = 0;
 		gameOver = false;
 		gameOverText.gameObject.SetActive(false);
+	}
 
+	void Start()
+	{
+		anim = mainCamera.GetComponent<Animator>();
 	}
 	string GetScore()
 	{
@@ -37,7 +43,10 @@ public class GameController : MonoBehaviour
 			if (Input.GetMouseButtonDown(1))
 			{
 				SceneManager.LoadScene("MainScene");
+				anim.SetTrigger("Alive");
 			}
+			anim.SetTrigger("Dead");
+
 		}
 		else
 		{

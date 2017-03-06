@@ -5,7 +5,7 @@ public class CollumnController : MonoBehaviour
 {
 
 	private Rigidbody2D rb2d;
-	private float maxVelocity = 15f;
+	private float maxVelocity = 4f;
 
 	// Use this for initialization
 	void Start ()
@@ -26,7 +26,6 @@ public class CollumnController : MonoBehaviour
 		if (Mathf.Abs(rb2d.velocity.x) > maxVelocity)
 		{
 			rb2d.velocity = new Vector2(-maxVelocity, 0);
-			
 		}
 	}
 }
